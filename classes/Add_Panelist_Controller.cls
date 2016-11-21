@@ -1,4 +1,4 @@
-public class Add_Panelist_Controller{
+/*Feature 1*/public class Add_Panelist_Controller{
     
     public List<wrapPanelist> lstWrapPanelist {get;set;}
     public boolean disableBtn{get;set;}
