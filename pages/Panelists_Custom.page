@@ -1,0 +1,278 @@
+<apex:page standardController="Panelist__c" extensions="Panelist_Extension_Controller" showHeader="false" sidebar="false">
+    
+    
+    <!-- Page specific styles -->
+    <style>
+        .test-page.header {
+            max-height:120px;
+            
+        }
+        
+        .top-line-spacing{
+            margin-top: 20px;
+        }
+        
+        .lookupInput>input{
+            display: block;
+            width: 90%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        
+        .align-lookup,.lookupInput>a{
+            float: right;
+            margin-top: -30px;
+        }
+        
+        .btn {
+            width: 150px !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+        
+        .btn-panel{
+            background-color: #eee;
+            padding: 20px;
+        }
+        .field-panel{
+            padding: 30px 0px;
+        }
+        
+        .header-panel{
+            background-color: #eee;
+            padding: 20px;
+            color: black;
+            font-size: 18px;
+        }
+        
+        .header-logo-size{
+            font-size: 30px !important;
+        }
+        
+        @media only screen
+            and (min-width : 320px)
+            and (max-width : 568px) {
+                .field-panel{
+                    padding: 20px 0px;
+                }
+            
+            
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+            label{
+                padding-left: 0px !important;
+            }
+        }
+        
+        @media only screen 
+        and (min-width : 568px) 
+        and (max-width : 1024px)  { 
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+            label{
+                padding-left: 0px !important;
+            }
+        
+        }
+        .dateFormat{
+            display: none;
+        }
+        .multiSelectPicklistCell > a > img{
+            height: 30px !important;
+
+        }
+        .multiSelectPicklistRow>td>select{
+            width: 110px !important;
+        }
+        
+            
+        .multiSelectPicklistCell{
+            padding-left: 2px;
+            padding-right: 4px;
+        }
+        label{
+            padding-left: 50px;
+        }
+    </style>
+    <!-- Page specific styles -->
+    
+    
+    <!-- Header component -->
+    <c:Blitz_GlobalHeader /> 
+    
+    
+    <div class="panelist-page-wrapper">    
+        
+        
+        <apex:form >    
+            <section  class="page-content">
+                <div class="container">
+                    <div class="header-panel">
+                    
+                        <span class="fa-stack fa-4x header-logo-size">
+                            <i class="fa fa-circle fa-stack-2x "></i>
+                            <i class="fa fa-users fa-stack-1x text-primary"></i>
+                        </span>
+                       Add Panelist {!header}
+                    </div>
+
+                    <div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>First Name</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.First_Name__c}" styleclass="form-control"/> 
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Capability</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Capability__c}" styleclass="form-control" />
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Last Name</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Last_Name__c}" styleclass="form-control"/>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Other Capability</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Other_Capability__c}" styleclass="form-control"/> 
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Email</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Email__c}" styleclass="form-control" /> 
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Competency</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Competency__c}" styleclass="form-control" /> 
+                            </div>
+                            
+                            
+                            
+                            
+                        </div>
+              
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Phone</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Phone__c}" styleclass="form-control" />
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Location</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Location__c}" styleclass="form-control" /> 
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>IT Start Date</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.IT_Start_Date__c}" styleclass="form-control" style="width:100%"/> 
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Round</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Round__c}" styleclass="form-control" style="height: 110px;"/>
+                            </div>
+                        </div>
+              
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Relevant Experience Start Date</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Relevant_Experience_Start_Date__c}" styleclass="form-control" style="width:100%"/>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Active</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Panelist__c.Active__c}" styleclass="form-control" style="width:15%"/>
+                            </div>
+                            
+                            
+                        </div>
+                        
+                        
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: right;">
+                            <apex:commandButton action="{!save}"  value="Save"/> 
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: left;">
+                            <apex:commandButton action="{!cancel}"  value="Cancel"/>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </section>      
+
+        </apex:form>
+    </div>
+    
+    <!-- Footer component -->
+    <c:Blitz_FooterComponent />
+    
+</apex:page>

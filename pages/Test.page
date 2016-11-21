@@ -1,0 +1,341 @@
+<apex:page standardController="Location_SPOC_s__c" standardStylesheets="true" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!-- trying to add fav icon on the address bar -->
+    <link rel="shortcut icon" href="img/d-icon.ico"/>
+    <!-- ******************************************************************************* -->
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}"/>  
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}"/>
+    <!-- Page specific css -->
+    <link href="css/page.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/page.css')}"/>
+
+    <!-- Custom Fonts -->
+    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/font-awesome/css/font-awesome.min.css')}"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/bootstrap.min.js')}"/>
+    
+    <!-- ******************************************************************************* -->
+    <title>Test Page</title>
+    <!-- Bootstrap Core CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}"/>
+    
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"/> -->
+    <!-- Custom CSS -->
+    <!-- <link href="css/stylish-portfolio.css" rel="stylesheet"/> -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .test-page.header {
+        max-height:120px;
+        
+    }
+    
+    .top-line-spacing{
+        margin-top: 20px;
+    }
+    
+    .lookupInput>input{
+        display: block;
+        width: 90%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    
+    .align-lookup,.lookupInput>a{
+        float: right;
+        margin-top: -30px;
+    }
+    
+    .btn {
+        width: 150px !important;
+        height: 40px !important;
+        background-image: none !important;
+        color: #fff !important;
+        background-color: #5cb85c !important;
+        border-color: #4cae4c !important;
+    }
+    
+    .btn-panel{
+        background-color: #eee;
+        padding: 20px;
+    }
+    .field-panel{
+        padding: 30px 0px;
+    }
+    
+    .header-panel{
+        background-color: #eee;
+        padding: 20px;
+        color: black;
+        font-size: 18px;
+    }
+    
+    .header-logo-size{
+        font-size: 30px !important;
+    }
+    
+    @media only screen
+        and (min-width : 320px)
+        and (max-width : 568px) {
+            .field-panel{
+                padding: 20px 0px;
+            }
+        
+        
+        .btn {
+            width: 100% !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+    }
+    
+    @media only screen 
+    and (min-width : 568px) 
+    and (max-width : 1024px)  { 
+        .btn {
+            width: 100% !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+    
+    }
+    </style>
+    
+    <c:Blitz_GlobalHeader />     
+    <!-- Header -->
+        <!-- Header -->
+    <!--<header id="top" class="header">
+        <div class="text-vertical-center">
+            
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                    <a href="#candidate-list" class="btn-dark btn-lg toggle home-icon"><i class="fa fa-home">D-Blitz</i></a>
+
+                   
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Candidate<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">New Candidate</a></li>
+                                <li><a href="#">View Candidates</a></li>
+                                <li><a href="#">Assessment</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Panelist<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">New Panelist</a></li>
+                                <li><a href="#">View Panelists</a></li>
+                                                  
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blitz<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">New Blitz</a></li>
+                                <li><a href="#">View Blitz</a></li>
+                                                   
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPOC<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Location SPOC</a></li>
+                                <li><a href="#">Blitz SPOC</a></li>
+                                                  
+                            </ul>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn-dark btn-lg toggle logout-icon"><i class="fa fa-sign-out"></i></a>
+                          
+                </div>
+               
+            </nav>
+
+           
+
+
+
+        </div>
+    </header>-->
+
+    <apex:form >
+    <div class="test-page-wrapper">
+        <section  class="page-content">
+            <div class="container">
+                
+                <div class="test-page">
+                    <div class="header-panel">
+                    
+                        <span class="fa-stack fa-4x header-logo-size">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                        </span>
+                        New Location SPOC
+                    </div>
+                    <div class="field-panel">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>SPOC Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+                                <apex:inputField value="{!Location_SPOC_s__c.Name}" required="true" styleclass="form-control"/>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Type</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.Type__c}" required="false" styleclass="form-control"/>
+                            </div>
+                        </div>
+                        
+                                    
+                    <!--  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>First Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.First_Name__c}" required="false" styleclass="form-control"/>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Last Name</label>
+                            </div>
+                           
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.Last_Name__c}" required="false" styleclass="form-control"/>
+                            </div>
+                        </div>-->
+                        
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Current Level</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.Current_Level__c}" required="false" styleclass="form-control"/>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>SPOC Location</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.SPOC_Location__c}" required="false" styleclass="form-control"/>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Active</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.Active__c}" required="false" styleclass="form-control"/>
+                            </div>
+                            
+                           <!-- <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Blitz Attendees</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Location_SPOC_s__c.00N11000001DygH}" required="false" />
+                            </div>-->
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                        <div class="col-xs-12 col-sm-4 col-md-5 col-lg-5" style="text-align: right;">
+                            <apex:commandButton value="Save" action="{!save}" styleClass="btn btn-default" />
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2" style="text-align: center;">
+                            <apex:commandButton value="Save & New" action="{!save}" styleClass="btn  btn-default"/>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-4 col-md-5 col-lg-5" style="text-align: left;">
+                            <apex:commandButton value="Cancel" action="{!cancel}" styleClass="btn btn-default"/>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+        </section>  
+    </div>
+    </apex:form>
+
+        <section class="services page-footer">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        
+                        <!-- <hr class="small"> -->
+                        <div class="contact-row row">
+                            <h5>For further details, contact:<span>
+                                    <span><a href="#"> Gagan Bansal </a></span>
+                                    <span><a href="#"> Ganesh M</a></span>
+                                    <span><a href="#"> Sachin George </a></span>
+                                    <span><a href="#"> Ritika Neema </a></span>
+                                    <span><a href="#"> Shrivaths Kulkarni </a></span>
+                                    <span><a href="#"> Anjali S </a></span>
+                                </span>
+                            </h5>
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.col-lg-10 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+
+</apex:page>

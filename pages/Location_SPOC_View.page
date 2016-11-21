@@ -1,0 +1,30 @@
+<apex:page standardController="Location_SPOC_s__c" extensions="LocationSPOC_Extension_Controller">
+<apex:form >
+    <apex:sectionHeader title="Location_SPOC_s__c"
+        subtitle="{!Location_SPOC_s__c.name}" />
+    <apex:pageBlock title="Location_SPOC_s__c">
+    <apex:pageBlockButtons location="top"> 
+        <apex:commandButton value="Edit" action="{!edit}"/> 
+    </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Information" columns="2">
+            <apex:outputField title="SPOC Name"
+                value="{!Location_SPOC_s__c.Name}" />
+           <apex:outputField title="Type" value="{!Location_SPOC_s__c.Type__c}" />
+           <!--  <apex:outputField title="First Name"
+                value="{!Location_SPOC_s__c.First_Name__c}" />
+            <apex:outputField title="Last Name"
+                value="{!Location_SPOC_s__c.Last_Name__c}" />
+           -->
+            <apex:outputField title="Current Level"
+                value="{!Location_SPOC_s__c.Current_Level__c}" />
+            <apex:outputField title="SPOC Location"
+                value="{!Location_SPOC_s__c.SPOC_Location__c}" />
+            <apex:outputField title="Active"
+                value="{!Location_SPOC_s__c.Active__c}" />
+           <!-- <apex:outputField title="Blitz History"
+                value="{!Location_SPOC_s__c.00N11000001DygH}" />
+            -->
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

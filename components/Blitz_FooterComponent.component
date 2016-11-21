@@ -1,0 +1,28 @@
+<apex:component >
+    <section class="services page-footer">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        
+                        <div class="contact-row row">
+                            <h5>For further details, contact:<span>
+                                    <span><a href="#"> Gagan Bansal </a></span>
+                                    <span><a href="#"> Ganesh M</a></span>
+                                    <span><a href="#"> Sachin George </a></span>
+                                    <span><a href="#"> Ritika Neema </a></span>
+                                    <span><a href="#"> Shrivaths Kulkarni </a></span>
+                                    <span><a href="#"> Anjali S </a></span>
+                                </span>
+                            </h5>
+                        </div>
+
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.col-lg-10 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+
+</apex:component>

@@ -1,0 +1,23 @@
+<apex:page controller="DynamicObjectHandler" >
+  <apex:form >
+  <apex:pageblock >
+    <apex:SelectList value="{!selectedObj}" size="1">
+     <apex:actionSupport event="onchange" rerender="out" status="status"/>
+      <apex:selectOptions value="{!objName}"></apex:selectOptions>
+    </apex:SelectList>
+</apex:pageblock>
+ </apex:form>
+<apex:outputPanel id="out">
+<apex:form >
+    <apex:actionstatus id="status" startText="testing...">
+    <apex:facet name="stop">
+      <apex:outputPanel >
+         <apex:SelectList value="{!childObjl}" size="1">
+          <apex:selectOptions value="{!childObjName}"></apex:selectOptions>
+        </apex:SelectList>
+      </apex:outputPanel>
+    </apex:facet>
+    </apex:actionstatus>
+</apex:form>
+</apex:outputPanel>
+</apex:page>

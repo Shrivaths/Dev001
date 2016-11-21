@@ -1,0 +1,29 @@
+<apex:page standardController="Blitz_Panelists__c"  extensions="BlitzPanelists_Extension_Controller">
+   <apex:sectionHeader title="Blitz_Panelists__c Edit" subtitle="{!Blitz_Panelists__c.name}"/>
+   <apex:form >
+      <apex:pageBlock title="Blitz_Panelists__c Edit" mode="edit">
+         <apex:pageBlockButtons location="top">
+            <apex:commandButton value="Save" action="{!save}"/>
+            <apex:commandButton value="Save & New" action="{!save}" />
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+         </apex:pageBlockButtons>
+         <apex:pageBlockButtons location="bottom">
+            <apex:commandButton value="Save" action="{!save}"/>
+            <apex:commandButton value="Save & New" action="{!save}" />
+            <apex:commandButton value="Cancel" action="{!cancel}"/>
+         </apex:pageBlockButtons>
+         <apex:pageBlockSection title="Information" columns="2">
+            <apex:inputField value="{!Blitz_Panelists__c.Name}" required="true"/>
+            <apex:inputField value="{!Blitz_Panelists__c.OwnerId}" required="false"/>
+            <apex:inputField value="{!Blitz_Panelists__c.Blitz_Type__c}" required="false"/>
+            <apex:inputField value="{!Blitz_Panelists__c.Availability_Start_Time__c}" required="false"/>
+            <apex:inputField value="{!Blitz_Panelists__c.Availability_End_Time__c}" required="false"/>
+            <apex:inputField value="{!Blitz_Panelists__c.Status__c}" required="false"/>
+           
+            <apex:inputField value="{!Blitz_Panelists__c.Panelist__c}" required="false"/>
+            <apex:inputField value="{!Blitz_Panelists__c.Blitz_Plan__c}" required="false"/>
+
+         </apex:pageBlockSection>
+      </apex:pageBlock>
+   </apex:form>
+</apex:page>

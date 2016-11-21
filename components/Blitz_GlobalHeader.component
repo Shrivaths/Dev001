@@ -1,0 +1,147 @@
+<apex:component >
+
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!-- trying to add fav icon on the address bar -->
+    <link rel="shortcut icon" href="img/d-icon.ico"/>
+    <!-- ******************************************************************************* -->
+    <!-- Bootstrap Core CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}"/>  
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}"/>
+    <!-- Page specific css -->
+    <link href="css/page.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/page.css')}"/>
+
+    <!-- Custom Fonts -->
+    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/font-awesome/css/font-awesome.min.css')}"/>
+    
+    <!-- cutsom css common to all pages -->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/custom.css')}"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/bootstrap.min.js')}"/>
+    
+    <!-- ******************************************************************************* --
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style>
+    label{
+        padding-left: 50px;
+    }
+    a{
+        color: #fff !important;
+    }
+    
+    @media only screen
+        and (min-width : 320px)
+        and (max-width : 568px) {
+          
+        label{
+            padding-left: 0px !important;
+        }
+    }
+    
+    @media only screen 
+    and (min-width : 568px) 
+    and (max-width : 1024px)  { 
+        label{
+            padding-left: 0px !important;
+        }
+    
+    }
+</style>
+<!-- Header -->
+        <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <!-- Search Navbar - START -->
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <h3 class="user-type">Candidate</h3> -->
+                    <a href="/apex/Home" class="btn-dark btn-lg toggle home-icon"><i class="fa fa-home">D-Blitz</i></a>
+
+                    <!-- <span><a class="navbar-brand" href="#">D-Blitz</a></span> -->
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <!-- <li class="active"><a href="#">Link</a></li> -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Candidate<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/apex/Candidate_Edit?mode=new">New Candidate</a></li>
+                                <li><a href="/apex/Candidate_Detail?id=a0C110000042MLV" target="_top">View Candidates</a></li>
+                                <li><a href="/apex/Candidate_Assesment_Edit">Candidate Assessment</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Panelist<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/apex/Panelists_Custom?mode=new">New Panelist</a></li>
+                                <li><a href="/apex/Panelist_Detail?id=a0B11000004i1MN" target="_top">View Panelists</a></li>
+                                                  
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blitz<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/apex/Blitz_Plan_Add?mode=new" target="_top">New Blitz</a></li>
+                                <li><a href="/apex/Blitz_Plan_Detail?id=a0J11000006t1xz" target="_top">View Blitz</a></li>
+                                <li><a href="/apex/CandidateSearch" target="_top">Blitz Attendees</a></li>       <!-- /apex/Blitz_Attendees_View?id={!$Label.BlitzAttendee} -->          
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SPOC<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/apex/LocationView?id=a0D11000007FPA9" target="_top">Location SPOC</a></li>
+                                <li><a href="#">Blitz SPOC</a></li>
+                                                  
+                            </ul>
+                        </li>
+                    </ul>
+                    <!--<a href="#" class="btn-dark btn-lg toggle logout-icon"><i class="fa fa-sign-out"></i></a>-->
+                    <!-- <div class="col-sm-3 col-md-3 pull-right">
+                        <form class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search" name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>  -->       
+                </div>
+               
+            </nav>
+
+            <!-- Search Navbar - END -->
+
+
+
+        </div>
+    </header>
+</apex:component>

@@ -1,0 +1,14 @@
+<apex:page controller="Future_Blitz_Controller">
+<apex:form >
+
+<apex:pageBlock >
+ <apex:pageblocktable value="{!listBlitz}" var="blitz" cellspacing="6" border="3px" cellpadding="40px" styleClass="table table-striped">
+      
+         
+         <apex:column headerValue="Blitz Date" style="width:95px">
+         <apex:commandLink action="{!}" value="{!blitz.Blitz_Planned_Date__c}" id="clid"/>
+         </apex:column>
+      </apex:pageblocktable>
+</apex:pageBlock>
+</apex:form>
+</apex:page>

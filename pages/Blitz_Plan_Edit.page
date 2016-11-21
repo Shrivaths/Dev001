@@ -1,0 +1,26 @@
+<apex:page standardController="Blitz_Plan__c" extensions="BlitzPlan_Extension_Controller"> 
+<apex:sectionHeader title="Blitz_Plan__c Edit" subtitle="{!Blitz_Plan__c.name}"/> 
+<apex:form > 
+<apex:pageBlock title="Blitz_Plan__c Edit" mode="edit"> 
+<apex:pageBlockButtons location="top"> 
+<apex:commandButton value="Save" action="{!save}"/> 
+<apex:commandButton value="Save & New" action="{!save}" /> 
+<apex:commandButton value="Cancel" action="{!cancel}"/> 
+</apex:pageBlockButtons> <apex:pageBlockButtons location="bottom"> 
+<apex:commandButton value="Save" action="{!saveAction}"/> 
+<apex:commandButton value="Save & New" action="{!saveAction}" /> 
+<apex:commandButton value="Cancel" action="{!cancelAction}"/> 
+</apex:pageBlockButtons> 
+<apex:pageBlockSection > 
+<apex:inputField value="{!Blitz_Plan__c.Name}" required="true"/> 
+<apex:inputField value="{!Blitz_Plan__c.OwnerId}" required="false"/> 
+<apex:inputField value="{!Blitz_Plan__c.Blitz_Planned_Date__c}" required="false"/> 
+<apex:inputField value="{!Blitz_Plan__c.Blitz_Location__c}" required="false"/> 
+<apex:inputField value="{!Blitz_Plan__c.Is_it_an_Open_House_Event__c}" required="false"/> 
+<apex:inputField value="{!Blitz_Plan__c.Other_Location__c}" required="false"/> 
+<apex:inputField value="{!Blitz_Plan__c.Blitz_Panelist_cut_off_date_for_Panel__c}" required="false"/> 
+<apex:inputField value="{!Blitz_Plan__c.Active__c}" required="false"/> 
+</apex:pageBlockSection> 
+</apex:pageBlock> 
+</apex:form> 
+</apex:page>

@@ -1,0 +1,205 @@
+<apex:page standardController="Blitz_Plan__c" extensions="BlitzPlan_Extension_Controller" showHeader="false" sidebar="false"> 
+
+    <!-- Page specific styles -->
+    <style>
+        .test-page.header {
+            max-height:120px;
+            
+        }
+        
+        .top-line-spacing{
+            margin-top: 20px;
+        }
+        
+        .lookupInput>input{
+            display: block;
+            width: 90%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        
+        .align-lookup,.lookupInput>a{
+            float: right;
+            margin-top: -30px;
+        }
+        
+        .btn {
+            width: 150px !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+        
+        .btn-panel{
+            background-color: #eee;
+            padding: 20px;
+        }
+        .field-panel{
+            padding: 30px 0px;
+        }
+        
+        .header-panel{
+            background-color: #eee;
+            padding: 20px;
+            color: black;
+            font-size: 18px;
+        }
+        
+        .header-logo-size{
+            font-size: 30px !important;
+        }
+        
+        @media only screen
+            and (min-width : 320px)
+            and (max-width : 568px) {
+                .field-panel{
+                    padding: 20px 0px;
+                }
+            
+            
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        }
+        
+        @media only screen 
+        and (min-width : 568px) 
+        and (max-width : 1024px)  { 
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        
+        }
+        .dateFormat{
+            display: none;
+        }
+    </style>
+    <!-- Page specific styles -->
+    
+    <!-- Header component -->
+    <c:Blitz_GlobalHeader /> 
+
+    <div class="blitzplan-page-wrapper">
+    
+        <apex:form title="Candidate" >
+            <section  class="page-content">
+                <div class="container">
+                    <div class="header-panel">
+                    
+                      
+                        <span class="fa-stack fa-4x header-logo-size">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-calendar fa-stack-1x text-primary"></i>
+                        </span>
+                        View Blitz
+                    </div>
+                    
+                
+                
+                    <div class="field-panel">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Name</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Blitz Plan Name" value="{!Blitz_Plan__c.Name}"/>              
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Blitz Planned Date</label>            
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Blitz Planned Date" value="{!Blitz_Plan__c.Blitz_Planned_Date__c}"/>           
+                            </div>
+                        </div>
+         
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Blitz Location</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Blitz Location" value="{!Blitz_Plan__c.Blitz_Location__c}"/>              
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Confirm Availability cut-off date for Panelist</label>            
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Confirm Availability cut-off date" value="{!Blitz_Plan__c.Blitz_Panelist_cut_off_date_for_Panel__c}"/>           
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Other Location</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Other Location" value="{!Blitz_Plan__c.Other_Location__c}"/>               
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Is it an Open House Event?</label>            
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Is it an Open House Event" value="{!Blitz_Plan__c.Is_it_an_Open_House_Event__c}"/>           
+                            </div>
+                            
+                        </div>
+                 
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Active</label>       
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:outputField title="Active" value="{!Blitz_Plan__c.Active__c}"/>               
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+                            <apex:commandButton value="Edit" action="{!edit}"/>
+                        </div>
+                        
+                    </div>
+                </div>
+         
+            </section>
+        
+        </apex:form>
+
+    </div>
+    
+    <!-- Footer component -->
+    <c:Blitz_FooterComponent /> 
+    
+</apex:page>

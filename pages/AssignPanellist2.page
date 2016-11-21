@@ -1,0 +1,225 @@
+<apex:page controller="AssignPanellist_Controller" showHeader="false" sidebar="false">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- trying to add fav icon on the address bar -->
+    <link rel="shortcut icon" href="img/d-icon.ico" />
+    <!-- ******************************************************************************* -->
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}" />
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet" />
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}" />
+    <!-- Page specific css -->
+    <link href="css/page.css" rel="stylesheet" />
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/page.css')}" />
+
+    <!-- Custom Fonts -->
+    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/font-awesome/css/font-awesome.min.css')}" />
+
+    <link
+        href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css" />
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/jquery.js')}" />
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/bootstrap.min.js')}" />
+    <apex:includeScript value="{!$Resource.jQueryui}"/>
+
+    <!-- ******************************************************************************* -->
+    <title>Assign Panellist</title>
+    <!-- Bootstrap Core CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}" />
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}" />
+
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"/> -->
+    <!-- Custom CSS -->
+    <!-- <link href="css/stylish-portfolio.css" rel="stylesheet"/> -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css" />
+    <link
+        href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic"
+        rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <c:Blitz_GlobalHeader />
+    <apex:form id="frm">
+           <apex:actionfunction name="confirmAssignment" action="{!confirmAssignment}"
+            rerender="frm" onComplete="showModalEdit();return false">
+            <apex:param name="panelistId" value="" />
+        </apex:actionfunction>
+        <div class="test-page-wrapper" style="height: 700px;">
+        <section  class="page-content">
+            <div class="container">
+        <div class="col-lg-12">
+            <apex:outputPanel id="PanelistInfoPanel">
+            <div class="row bottom-margin"> 
+            <div class="col-md-12">                 
+                <!--<apex:commandButton value="" id="search" action="{!FormNewTable}" styleClass="intrfcVal top-margin btn  search pull-right" style="margin-left:5px;" />   -->
+               <!-- <apex:inputText value="{!intfcVal}" styleClass="intrfcName top-margin pull-right form-control searchBox" html-placeholder="Search" style="width:18%;"/> -->
+            </div>
+            </div>
+                <table class="table">
+                <theader>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Capability
+                        </th>
+                        <th>
+                            Total Experience In Months
+                        </th>
+                        <th>
+                            Location
+                        </th>
+                        <th>
+                            Candidates Assigned
+                        </th>
+                    </tr>
+                    
+                </theader>
+                <tbody>
+                <apex:repeat value="{!pList}" var="pa">
+                    <!--<apex:column headerValue="Panelist Name" style="width:95px">
+                        <a class="link" style="color:#337ab7 !important;cursor:pointer;" onclick="confirmAssignment('{!pa.Id}'); return false;">{!pa.First_Name__c
+                            + ' '} {!pa.Last_Name__c}</a>
+                        
+                    </apex:column>
+                    <apex:column headerValue="Capability" style="width:95px">
+                        <apex:outputtext value="{!pa.Capability__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Experience in Months" style="width:95px">
+                        <apex:outputtext value="{!pa.Total_Experience_In_Months__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Location" style="width:95px">
+                        <apex:outputtext value="{!pa.Location__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Round" style="width:95px">
+                        <apex:outputtext value="{!pa.Round__c}" />
+                    </apex:column>
+                    <apex:column headerValue="Assigned Candidates" style="width:95px">
+                        <apex:outputtext value="{!pa.Candidates_Assigned__c}" />
+                    </apex:column>-->
+                    
+                    <tr>
+                        <td>
+                            <a class="link" style="color:#337ab7 !important;cursor:pointer;" onclick="confirmAssignment('{!pa.Id}'); return false;">{!pa.First_Name__c
+                            + ' '} {!pa.Last_Name__c}</a>
+                        </td>
+                        <td style="color: #fff !important;">
+                            {!pa.Capability__c}"
+                        </td>
+                        <td style="color: #fff !important;">
+                            {!pa.Total_Experience_In_Months__c}"
+                        </td>
+                        <td style="color: #fff !important;">
+                            {!pa.Location__c}"
+                        </td>
+                        <td style="color: #fff !important;">
+                            {!pa.Round__c}"
+                        </td>
+                        <td style="color: #fff !important;">
+                            {!pa.Candidates_Assigned__c}
+                        </td>
+                    </tr>
+                    
+                </apex:repeat>
+                </tbody>
+                </table>
+          
+            </apex:outputPanel>
+        </div>
+        <!-- Begin Assign Panelist Modal Content -->
+        <div class="modal" id="modal-edit" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Assign Panelist</h4>
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="pull-right">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <apex:commandButton value="Assign Panelist"
+                                styleClass="btn btn-success" action="{!assignPanelist}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </section>
+        </div>
+    </apex:form>
+            <section class="services page-footer">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        
+                        <!-- <hr class="small"> -->
+                        <div class="contact-row row">
+                            <h5>For further details, contact:<span>
+                                    <span><a href="#"> Gagan Bansal </a></span>
+                                    <span><a href="#"> Ganesh M</a></span>
+                                    <span><a href="#"> Sachin George </a></span>
+                                    <span><a href="#"> Ritika Neema </a></span>
+                                    <span><a href="#"> Shrivaths Kulkarni </a></span>
+                                    <span><a href="#"> Anjali S </a></span>
+                                </span>
+                            </h5>
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.col-lg-10 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+    <!-- End Edit Modal Content -->
+    <script>
+            function showModalEdit() {
+                      $('#modal-edit').modal('show');
+                    }
+                    
+        /*                var apexInterfaceList =[];
+       <apex:repeat value="{!pList}" var="ca">   
+       apexInterfaceList.push('{!ca.First_Name__c}');        
+      </apex:repeat>
+      
+    $(document).ready(function(){
+     $('.intrfcName').keydown(function (e){
+    if(e.keyCode == 13){
+        e.preventDefault();
+        $('.intrfcVal').trigger('click');
+    
+    }
+    
+});
+     
+      $(".intrfcName").autocomplete({
+          source: apexInterfaceList,     
+          select:function () {
+          // alert('hi');
+       
+        }
+        });
+      });*/
+                </script> 
+</apex:page>

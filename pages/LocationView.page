@@ -1,0 +1,180 @@
+<apex:page standardController="Location_SPOC_s__c" standardStylesheets="true" showHeader="false" sidebar="false" applyBodyTag="false" applyHtmlTag="false">
+
+    <style>
+        .test-page.header {
+            max-height:120px;
+            
+        }
+        
+        .top-line-spacing{
+            margin-top: 20px;
+        }
+        
+        .lookupInput>input{
+            display: block;
+            width: 90%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        
+        .align-lookup,.lookupInput>a{
+            float: right;
+            margin-top: -30px;
+        }
+        
+        .btn {
+            width: 150px !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+        
+        .btn-panel{
+            background-color: #eee;
+            padding: 20px;
+        }
+        .field-panel{
+            padding: 30px 0px;
+        }
+        
+        .header-panel{
+            background-color: #eee;
+            padding: 20px;
+            color: black;
+            font-size: 18px;
+        }
+        
+        .header-logo-size{
+            font-size: 30px !important;
+        }
+        
+        @media only screen
+            and (min-width : 320px)
+            and (max-width : 568px) {
+                .field-panel{
+                    padding: 20px 0px;
+                }
+            
+            
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        }
+        
+        @media only screen 
+        and (min-width : 568px) 
+        and (max-width : 1024px)  { 
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        
+        }
+    </style>
+    
+    <c:Blitz_GlobalHeader />     
+        
+     <div class="hrspoc-page-wrapper">
+        <apex:form >
+            <section  class="page-content">
+                <div class="container">
+                    
+                    <div class="test-page">
+                        <div class="header-panel">
+                        
+                            <span class="fa-stack fa-4x header-logo-size">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-compass fa-stack-1x text-primary"></i>
+                            </span>
+                            New Location SPOC
+                        </div>
+                        <div class="field-panel">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <label>SPOC Name</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+                                    <apex:outputField value="{!Location_SPOC_s__c.Name}" />
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <label>Team</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <apex:outputField value="{!Location_SPOC_s__c.Type__c}" />
+                                </div>
+                            </div>                          
+                            
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <label>Current Level</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <apex:outputField value="{!Location_SPOC_s__c.Current_Level__c}" />
+                                </div>
+                                
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <label>SPOC Location</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <apex:outputField value="{!Location_SPOC_s__c.SPOC_Location__c}" />
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <label>Active</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <apex:outputField value="{!Location_SPOC_s__c.Active__c}"/>
+                                </div>
+                                
+                               <!-- <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <label>Blitz Attendees</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                    <apex:inputField value="{!Location_SPOC_s__c.00N11000001DygH}" required="false" />
+                                </div>-->
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align: center;">
+                                <apex:commandButton value="Edit" action="{!save}" styleClass="btn btn-default" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div> 
+                
+            </section>  
+        </apex:form>
+    </div>
+    
+    <!-- Footer component -->
+    <c:Blitz_FooterComponent />
+
+</apex:page>

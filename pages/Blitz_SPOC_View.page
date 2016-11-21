@@ -1,0 +1,21 @@
+<apex:page standardController="Blitz_SPOC__c" extensions="BlitzSPOC_Extension_Controller">
+<apex:form >
+    <apex:sectionHeader title="Blitz_SPOC__c"
+        subtitle="{!Blitz_SPOC__c.name}" />
+    <apex:pageBlock title="Blitz_SPOC__c">
+        <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Edit" action="{!edit}" />
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Information" columns="2">
+            <apex:outputField title="Blitz SPOC Name"
+                value="{!Blitz_SPOC__c.Name}" />
+            <apex:outputField title="Location SPOCs"
+                value="{!Blitz_SPOC__c.Location_SPOC_s__c}" />
+            <apex:outputField title="Blitz Type"
+                value="{!Blitz_SPOC__c.Blitz_Type__c}" />
+            <apex:outputField title="Blitz Plan"
+                value="{!Blitz_SPOC__c.Blitz_Plan__c}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

@@ -1,0 +1,387 @@
+<apex:page standardController="Candidate_Assesment__c" extensions="CandidateAssesment_Extension_Controller" standardStylesheets="true" showHeader="false" sidebar="false">
+    
+    <style>
+        .test-page.header {
+            max-height:120px;
+            
+        }
+        
+        .top-line-spacing{
+            margin-top: 20px;
+        }
+        
+        .lookupInput>input{
+            display: block;
+            width: 90%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        
+        .align-lookup,.lookupInput>a{
+            float: right;
+            margin-top: -30px;
+        }
+        
+        .btn {
+            width: 150px !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+        
+        .btn-panel{
+            background-color: #eee;
+            padding: 20px;
+        }
+        .field-panel{
+            padding: 30px 0px;
+        }
+        
+        .header-panel{
+            background-color: #eee;
+            padding: 20px;
+            color: black;
+            font-size: 18px;
+        }
+        
+        .header-logo-size{
+            font-size: 30px !important;
+        }
+        
+        @media only screen
+            and (min-width : 320px)
+            and (max-width : 568px) {
+                .field-panel{
+                    padding: 20px 0px;
+                }
+            
+            
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        }
+        
+        @media only screen 
+        and (min-width : 568px) 
+        and (max-width : 1024px)  { 
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        
+        }
+        .dateFormat{
+            display: none;
+        }
+        .candidate-assesment .page-content, .candidate-page-wrapper.candidate-assesment{
+            height: auto;
+        }
+    </style>
+    
+    <c:Blitz_GlobalHeader /> 
+        
+    <div class="candidate-page-wrapper candidate-assesment">
+     
+        <apex:form >
+        <section  class="page-content">
+            <div class="container test-page">
+                <div class="header-panel">
+
+                    <span class="fa-stack fa-4x header-logo-size"> <i
+                        class="fa fa-circle fa-stack-2x"></i> <i
+                        class="fa fa-compass fa-stack-1x text-primary"></i></span>
+                      Edit Candidate Assesment
+                </div>
+                
+                        
+                
+                  
+                    <div class="field-panel">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Name}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Candidate</label>
+                            </div>
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Candidate__c}" required="true" />
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Service Line considered For</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Service_Line_considered_For__c}" required="false" styleClass="form-control"/>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Desired Position</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Desired_Position__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Service Comments</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Service_Comments__c}" styleClass="form-control"
+                                required="false" />
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Communication Comments</label>
+                            </div>
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Communication_Comments__c}" styleClass="form-control"
+                                required="false" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Management Comments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Management_Comments__c}" styleClass="form-control"
+                                required="false" />
+                            </div>  
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Service Skills Evaluation</label>
+                            </div>
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Service_Skills_Evaluation__c}" styleClass="form-control"
+                                required="false" />
+                            </div>
+                        </div>
+                                
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Communication Skills Evaluation</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Communication_Skills_Evaluation__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Management Skills Evaluation</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate_Assesment__c.Management_Skills_Evaluation__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Leadership Skills Evaluation</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            
+                        
+                            <apex:inputField value="{!Candidate_Assesment__c.Leadership_Skills_Evaluation__c}" styleClass="form-control"
+                                required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Technical Skills Evaluation</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Technical_Skills_Evaluation__c}" styleClass="form-control"
+                                required="false" />
+                             </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Interview Recommendation</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"> 
+                        <apex:inputField value="{!Candidate_Assesment__c.Interview_Recommendation__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>If Offered Level</label>
+                            </div>
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">  
+                            <apex:inputField value="{!Candidate_Assesment__c.If_Offered_Level__c}" styleClass="form-control"
+                                required="false" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Overall Comments</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            
+                            <apex:inputField value="{!Candidate_Assesment__c.Overall_Comments__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Blitz Attendees</label>
+                            </div>
+                        
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            
+                            
+                            <apex:inputField value="{!Candidate_Assesment__c.Blitz_Attendees__c}"
+                                required="true" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Current Employer</label>
+                            </div>
+                            
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Current_Employer__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Current Position</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Current_Position__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Total Months of Exp</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate_Assesment__c.Total_Months_of_Exp__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Relevant Months of Exp</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate_Assesment__c.Relevant_Months_of_Exp__c}" styleClass="form-control"
+                            required="false" />
+                             
+                             </div>
+                        </div>
+                        
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>ConfigurationComments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Configuration_Comments__c}" styleClass="form-control"
+                                    required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Customization Comments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate_Assesment__c.Customization_Comments__c}" styleClass="form-control"
+                            required="false" />
+                             </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Deployment Comments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate_Assesment__c.Deployment_Comments__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Data Migration Comments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate_Assesment__c.Data_Migration_Comments__c}" styleClass="form-control"
+                            required="false" />
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Integration Comments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <apex:inputField value="{!Candidate_Assesment__c.Integration_Comments__c}" styleClass="form-control"
+                                    required="false" />
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                                <label>Additional Comments</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <apex:inputField value="{!Candidate_Assesment__c.Additional_Comments__c}"
+                                required="false" styleClass="form-control"/>
+                            </div>
+                        </div>
+
+            </div>
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6" style="text-align: right;">
+                            <apex:commandButton value="Save" action="{!save}" />
+                        </div>
+                        
+                        
+                        <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6" style="text-align: left;">
+                            <apex:commandButton value="Cancel" action="{!cancel}" />
+                        </div>
+                    </div>
+            </div>
+            </section>
+        </apex:form>
+    </div>
+    <div style="height: 55px;"></div>
+     
+    <!-- Footer component -->
+    <c:Blitz_FooterComponent />
+</apex:page>

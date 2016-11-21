@@ -1,0 +1,3 @@
+<apex:page standardController="Blitz_Plan__c" extensions="BlitzPlanExtension" sidebar="false">
+<apex:enhancedList type="Blitz_Plan__c" height="300" rowsPerPage="10" id="YourListViewId" />
+</apex:page>

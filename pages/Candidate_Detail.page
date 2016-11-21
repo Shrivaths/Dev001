@@ -1,0 +1,288 @@
+<apex:page standardController="Candidate__c" extensions="Candidate_Extension_Controller" showHeader="false" sidebar="false">
+    
+    <!-- Page specific styles -->
+    <style>
+        .test-page.header {
+            max-height:120px;
+            
+        }
+        
+        .top-line-spacing{
+            margin-top: 20px;
+        }
+        
+        .lookupInput>input{
+            display: block;
+            width: 90%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+        
+        .align-lookup,.lookupInput>a{
+            float: right;
+            margin-top: -30px;
+        }
+        
+        .btn {
+            width: 150px !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+        
+        .btn-panel{
+            background-color: #eee;
+            padding: 20px;
+        }
+        .field-panel{
+            padding: 30px 0px;
+        }
+        
+        .header-panel{
+            background-color: #eee;
+            padding: 20px;
+            color: black;
+            font-size: 18px;
+        }
+        
+        .header-logo-size{
+            font-size: 30px !important;
+        }
+        
+        @media only screen
+            and (min-width : 320px)
+            and (max-width : 568px) {
+                .field-panel{
+                    padding: 20px 0px;
+                }
+            
+            
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        }
+        
+        @media only screen 
+        and (min-width : 568px) 
+        and (max-width : 1024px)  { 
+            .btn {
+                width: 100% !important;
+                height: 40px !important;
+                background-image: none !important;
+                color: #fff !important;
+                background-color: #5cb85c !important;
+                border-color: #4cae4c !important;
+            }
+        
+        }
+        .dateFormat{
+            display: none;
+        }
+    </style>
+    <!-- Page specific styles -->
+    
+    <c:Blitz_GlobalHeader /> 
+    
+    <div class="candidate-page-wrapper">
+    
+    <apex:form title="Candidate" id="frm">
+        <section  class="page-content">
+            <div class="container">
+                <div class="header-panel">
+                
+                    <span class="fa-stack fa-4x header-logo-size">
+                        <i class="fa fa-circle fa-stack-2x "></i>
+                        <i class="fa fa-users fa-stack-1x text-primary"></i>
+                    </span>
+                    View Candidate 
+                </div>
+
+                <div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>First Name</label>       
+                    </div>
+                     
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="First Name" value="{!Candidate__c.First_Name__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Last Name</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Last Name" value="{!Candidate__c.Last_Name__c}"/>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Total Experience In Months</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Total Experience In Months" value="{!Candidate__c.Total_Experience_In_Months__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Relevant Experience In Months</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Relevant Experience In Months" value="{!Candidate__c.Relevant_Experience_In_Months__c}"/>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Capability</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Capability" value="{!Candidate__c.Capability__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Email</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Email" value="{!Candidate__c.Email__c}"/>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Phone</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Phone" value="{!Candidate__c.Phone__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Status</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Status" value="{!Candidate__c.Status__c}"/>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Other Capability</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Other capability" value="{!Candidate__c.Other_capability__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>On Hold Reason</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="On Hold Reason" value="{!Candidate__c.On_Hold_Reason__c}"/>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Active</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Active" value="{!Candidate__c.Active__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Current Designation</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Current Designation" value="{!Candidate__c.Current_Designation__c}"/>
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Current Company</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Current Company" value="{!Candidate__c.Current_Company__c}"/>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Unique</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:outputField title="Unique" value="{!Candidate__c.Unique__c}"/>
+                    </div>
+                </div>
+                </div>
+                
+            
+            
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: right;">
+                       <apex:commandButton value="Edit" action="{!editAction}"/> 
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: left;">
+                        <apex:commandButton value="Available For Blitz" action="{!getBlitzDate}" rerender="frm" onComplete="showModal();return false" style="text-align: center;"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+       <apex:actionfunction name="actionCandidate" action="{!saveBlitzDate}" rerender="frm" >
+       <apex:param id="param2" name="tempLineId2" value="{blitz.Blitz_Planned_Date__c}" assignTo="{!blitzDate}" />
+       <apex:param id="param1" name="tempLineId1" value="{!Candidate__c.Id}" assignTo="{!candId}"/>
+                     </apex:actionfunction> 
+        <!-- Begin Edit Modal Content -->
+        <div class="modal" id="modal-show" tabindex="-1" role="dialog"
+            aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Future Blitz Available</h4>
+                    </div>
+                    <div>
+                    <apex:repeat value="{!listBlitz}" var="blitz">
+                    
+                     <apex:commandButton value="{!blitz.Blitz_Planned_Date__c}" onclick="actionCandidate" id="clid">
+                     <br/>
+                     </apex:commandButton>
+                    </apex:repeat>
+                    </div>
+                   
+                    </div>
+                </div>
+            </div>
+        
+      
+    </apex:form>
+    </div>
+    
+    
+    <script>
+        function showModal() {
+             $('#modal-show').modal('show');
+        }  
+    </script> 
+    
+</apex:page>

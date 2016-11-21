@@ -1,0 +1,40 @@
+<apex:page controller="importDataFromCSVController">
+    <apex:form >
+        <apex:pagemessages />
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="10"> 
+                  <apex:inputFile value="{!csvFileBody}"  filename="{!csvAsString}"/>
+                  <apex:commandButton value="Import Candidates" action="{!importCSVFile}"/>
+                  <apex:actionRegion >
+               <apex:commandButton value="Remove" action="{!removeSelected}" reRender="block1"/>
+               </apex:actionRegion>
+               <apex:commandButton value="Send Email Notification" action="{!sendEmail}" disabled="{!sendEmailButton}"/>
+               <apex:commandButton value="Export as CSV" action="{!exportAsCSV}" disabled="{!exportButton}"/>
+            </apex:pageBlockSection>
+
+              <apex:pageblocktable value="{!wrapCandList}" var="acc" id="block1">
+              <apex:column >
+              <apex:facet name="header">
+              <apex:inputcheckbox />
+              </apex:facet>
+              <apex:inputCheckbox value="{!acc.isSelected}" id="InputCheckbox"/>
+              </apex:column>
+              <apex:column value="{!acc.Cand.First_Name__c}" />
+              <apex:column value="{!acc.Cand.Last_Name__c}" />
+              <apex:column value="{!acc.Cand.Duplicate_Record__c}" />
+              <apex:column value="{!acc.Cand.Phone__c}" />
+              <apex:column value="{!acc.Cand.Email__c}" />
+              <apex:column value="{!acc.Cand.PAN_Number__c}" />
+              <apex:column value="{!acc.Cand.Capability__c}" />
+              <apex:column value="{!acc.Cand.Total_Experience_In_Months__c}" />
+              <apex:column value="{!acc.Cand.Current_Company__c}" />
+              <apex:column value="{!acc.Cand.Last_Blitz_Attended__c}" />
+              <apex:column value="{!acc.Cand.Source__c}" />
+              
+              <apex:column value="{!acc.Cand.Blitz_Date__c}" />       
+            </apex:pageblocktable>
+             
+            </apex:pageBlock>
+            
+   </apex:form>
+</apex:page>

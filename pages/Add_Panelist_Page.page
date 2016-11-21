@@ -1,0 +1,63 @@
+<apex:page controller="Add_Panelist_Controller">
+
+<div> 
+<apex:form >
+ <apex:pageBlock >
+     <div>
+     <div>
+     <div>
+       <apex:pageBlockButtons location="top">
+            <apex:outputPanel id="newMp">
+                <apex:commandButton value="Add Panelist"
+                    style="width:10%; margin-right:10px;" action="{!addPanelistRow}"
+                    reRender=" " disabled="{!disableBtn}">
+                </apex:commandButton>
+            </apex:outputPanel>
+        </apex:pageBlockButtons>
+     </div>  
+     <div>
+      <apex:pageBlockButtons location="bottom">
+        <apex:outputPanel id="sv">
+                <apex:commandButton value="Save" action="{!savePanelist}"
+                    style="width:10%;" reRender=""
+                    disabled="{!disableBtn}">
+                </apex:commandButton>
+                 <apex:commandButton value="Remove" action="{!removePanelist}"
+                    style="width:10%;" reRender=""
+                    disabled="{!disableBtn}">
+                </apex:commandButton>
+            </apex:outputPanel>
+        </apex:pageBlockButtons>
+     </div>
+     
+      <apex:outputLabel value="Select Panelist" />
+              <apex:outputLabel value="Blitz Type" />
+              <apex:outputText value="{!type}"/>
+      <apex:pageblocktable value="{!lstWrapPanelist}" var="panelist" cellspacing="6" border="3px" cellpadding="40px" styleClass="table table-striped">
+          <apex:selectList value="{!panelist.selPanelist}" size="1">
+            <apex:selectOptions value="{!lstPanelistsName}" />
+        <!--    <apex:actionSupport event="onchange"
+                reRender="" action="{!PanelistChange}">
+                <apex:param name="cnt" assignTo="{!listCount}"
+                    value="{!lstWrap.wrapCounter}" /> 
+            </apex:actionSupport> -->
+         </apex:selectList>
+   
+         <apex:column headerValue="Action" style="width:95px">
+           <apex:inputCheckbox value="{!panelist.checkBoxVal}" id="chkBoxId"/>    
+         </apex:column>
+         <apex:column headerValue="Panelist Name" style="width:95px">
+              <apex:outputText value="{!panelist.panelistName}"/>
+         </apex:column> 
+         <apex:column headerValue="Send Invite" style="width:95px">
+              <apex:commandButton value="Send Invite" action="{!panelist.sendInvite}"/>
+         </apex:column> 
+
+      </apex:pageblocktable>
+      </div>
+      </div>
+      </apex:pageBlock>
+</apex:form>
+</div> 
+
+</apex:page>

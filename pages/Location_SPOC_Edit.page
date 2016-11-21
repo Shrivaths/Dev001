@@ -1,0 +1,77 @@
+<apex:page standardController="Location_SPOC_s__c" extensions="LocationSPOC_Extension_Controller" standardStylesheets="true" showHeader="false" sidebar="false">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!-- trying to add fav icon on the address bar -->
+    <link rel="shortcut icon" href="img/d-icon.ico"/>
+    <!-- ******************************************************************************* -->
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+
+    <!-- Custom Fonts -->
+    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/font-awesome/css/font-awesome.min.css')}"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/bootstrap.min.js')}"/>
+    
+    <!-- ******************************************************************************* -->
+    <title>Digital Blitz</title>
+    <!-- Bootstrap Core CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}"/>
+    
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"/> -->
+    <!-- Custom CSS -->
+    <!-- <link href="css/stylish-portfolio.css" rel="stylesheet"/> -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <apex:sectionHeader title="Location_SPOC_s__c Edit"
+        subtitle="{!Location_SPOC_s__c.name}" />
+    <apex:form >
+    <div class="header">
+        <apex:pageBlock title="Location_SPOC_s__c Edit" mode="edit">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Save & New" action="{!save}" />
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!save}" />
+                <apex:commandButton value="Save & New" action="{!save}" />
+                <apex:commandButton value="Cancel" action="{!cancel}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Information" columns="2">
+                <apex:inputField value="{!Location_SPOC_s__c.Name}" required="true" />
+                <apex:inputField value="{!Location_SPOC_s__c.OwnerId}"
+                    required="false" />
+                <apex:inputField value="{!Location_SPOC_s__c.Type__c}"
+                    required="false" />
+               <!-- <apex:inputField value="{!Location_SPOC_s__c.First_Name__c}"
+                    required="false" />
+                <apex:inputField value="{!Location_SPOC_s__c.Last_Name__c}"
+                    required="false" />
+               -->
+                <apex:inputField value="{!Location_SPOC_s__c.Current_Level__c}"
+                    required="false" />
+                <apex:inputField value="{!Location_SPOC_s__c.SPOC_Location__c}"
+                    required="false" />
+                <apex:inputField value="{!Location_SPOC_s__c.Active__c}"
+                    required="false" />
+             <!--   <apex:inputField value="{!Location_SPOC_s__c.00N11000001DygH}"
+                    required="false" />
+              -->
+            </apex:pageBlockSection>
+           
+        </apex:pageBlock>
+        </div>
+    </apex:form>
+</apex:page>

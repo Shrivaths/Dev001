@@ -1,0 +1,296 @@
+<apex:page standardController="Candidate__c" extensions="Candidate_Extension_Controller" showHeader="false" sidebar="false">
+<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <!-- trying to add fav icon on the address bar -->
+    <link rel="shortcut icon" href="img/d-icon.ico"/>
+    <!-- ******************************************************************************* -->
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}"/>  
+    <!-- Custom CSS -->
+    <link href="css/stylish-portfolio.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}"/>
+    <!-- Page specific css -->
+    <link href="css/page.css" rel="stylesheet"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/page.css')}"/>
+
+    <!-- Custom Fonts -->
+    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/font-awesome/css/font-awesome.min.css')}"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/jquery.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.Hack_UI_Resources,'/js/bootstrap.min.js')}"/>
+    
+    <!-- ******************************************************************************* -->
+    <title>Test Page</title>
+    <!-- Bootstrap Core CSS -->
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/bootstrap.min.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.Hack_UI_Resources,'/css/stylish-portfolio.css')}"/>
+    
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet"/> -->
+    <!-- Custom CSS -->
+    <!-- <link href="css/stylish-portfolio.css" rel="stylesheet"/> -->
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .test-page.header {
+        max-height:120px;
+        
+    }
+    
+    .top-line-spacing{
+        margin-top: 20px;
+    }
+    
+    .lookupInput>input{
+        display: block;
+        width: 90%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    }
+    
+    .align-lookup,.lookupInput>a{
+        float: right;
+        margin-top: -30px;
+    }
+    
+    .btn {
+        width: 150px !important;
+        height: 40px !important;
+        background-image: none !important;
+        color: #fff !important;
+        background-color: #5cb85c !important;
+        border-color: #4cae4c !important;
+    }
+    
+    .btn-panel{
+        background-color: #eee;
+        padding: 20px;
+    }
+    .field-panel{
+        padding: 30px 0px;
+    }
+    
+    .header-panel{
+        background-color: #eee;
+        padding: 20px;
+        color: black;
+        font-size: 18px;
+    }
+    
+    .header-logo-size{
+        font-size: 30px !important;
+    }
+    
+    @media only screen
+        and (min-width : 320px)
+        and (max-width : 568px) {
+            .field-panel{
+                padding: 20px 0px;
+            }
+        
+        
+        .btn {
+            width: 100% !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+    }
+    
+    @media only screen 
+    and (min-width : 568px) 
+    and (max-width : 1024px)  { 
+        .btn {
+            width: 100% !important;
+            height: 40px !important;
+            background-image: none !important;
+            color: #fff !important;
+            background-color: #5cb85c !important;
+            border-color: #4cae4c !important;
+        }
+    
+    }
+    </style>
+    
+    <c:Blitz_GlobalHeader /> 
+    <apex:form title="Candidate" >
+        <div class="container">
+            <apex:outputText value="{!Candidate__c.Name}" rendered="false" />
+            <apex:outputText value="{!Candidate__c.OwnerId}" rendered="false" />
+            <apex:outputText value="{!Candidate__c.LastModifiedBy}" rendered="false" />
+            <apex:outputText value="{!Candidate__c.CreatedBy}" rendered="false" />
+            <apex:outputText value="{!Candidate__c.Unique__c}" rendered="false" />
+            <div class="field-panel">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>First Name</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.First_Name__c}"/>                
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Last Name</label>            
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Last_Name__c}"/>         
+                    </div>
+                </div>  
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Total Experience in Months</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Total_Experience_In_Months__c}"/>                
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Relevant Experience In Months</label>            
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Relevant_Experience_In_Months__c}"/>         
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Capability</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Capability__c}"/>                
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Status</label>           
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Status__c}"/>        
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Email</label>        
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Email__c}"/>             
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Phone</label>            
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Phone__c}"/>     
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Blitz Date</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Blitz_Date__c}"/>                
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Other capability</label>         
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Other_capability__c}"/>  
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>On Hold Reason</label>       
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.On_Hold_Reason__c}"/>                
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Current Company</label>          
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Current_Company__c}"/>   
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing">
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Current Designation</label>      
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Current_Designation__c}"/>               
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <label>Active</label>           
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                        <apex:inputField value="{!Candidate__c.Active__c}"/>    
+                    </div>
+                </div>
+            </div>
+        
+        
+        
+        
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 top-line-spacing btn-panel">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: right;">
+                    <apex:commandButton action="{!saveAction}"  value="Save"/> 
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="text-align: left;">
+                   <apex:commandButton action="{!cancelAction}"  value="Cancel"/> 
+                </div>
+            </div>
+        </div>
+    </apex:form>
+            <section class="services page-footer">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        
+                        <!-- <hr class="small"> -->
+                        <div class="contact-row row">
+                            <h5>For further details, contact:<span>
+                                    <span><a href="#"> Gagan Bansal </a></span>
+                                    <span><a href="#"> Ganesh M</a></span>
+                                    <span><a href="#"> Sachin George </a></span>
+                                    <span><a href="#"> Ritika Neema </a></span>
+                                    <span><a href="#"> Shrivaths Kulkarni </a></span>
+                                    <span><a href="#"> Anjali S </a></span>
+                                </span>
+                            </h5>
+                        </div>
+                        <!-- /.row (nested) -->
+                    </div>
+                    <!-- /.col-lg-10 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </section>
+</apex:page>
