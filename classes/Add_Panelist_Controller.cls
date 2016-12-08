@@ -72,5 +72,5 @@ public class Add_Panelist_Controller{
         }  */
     }
 
-    //Test class for commit
+    //Test class for commit----------
 }
