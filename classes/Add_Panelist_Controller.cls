@@ -71,6 +71,4 @@ public class Add_Panelist_Controller{
             return editPage;
         }  */
     }
-
-    //Test class for commit
 }
